@@ -1,0 +1,9 @@
+Chiyo product icon — generated with the built-in image_gen tool.
+Source: build/icon.png
+Windows multi-resolution icon: build/icon.ico
+Renderer icon: src/renderer/public/icon.png
+
+Prompt:
+Use case: logo-brand. Asset type: Windows desktop application icon for Chiyo, an AI-assisted traditional black-and-white Japanese manga editor. Create one polished square app icon: a bold black manga pen nib combined with a white comic page divided into a few graphic panels, on a soft dusty rose pink rounded-square tile. Restrained, charming Japanese creative-tool identity, crisp strong silhouette recognizable at 24 pixels, simple flat graphic shapes, generous clean spacing, no tiny details. Centered single icon filling most of image. No text, no letters, no mockup, no watermark, no extra icons. Transparent outside rounded tile.
+
+transparent_background: true

@@ -1,0 +1,81 @@
+{
+  "name": "chiyo-manga",
+  "version": "0.4.0",
+  "private": true,
+  "description": "千代 · AI 辅助黑白漫画编辑器",
+  "author": "Chiyo contributors",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "node scripts/build-icon.mjs && electron-vite build",
+    "start": "electron-vite preview",
+    "typecheck": "vue-tsc --noEmit",
+    "format:check": "prettier --check src scripts tests *.json *.ts *.mjs",
+    "format:fix": "prettier --write src scripts tests *.json *.ts *.mjs",
+    "lint:check": "eslint src scripts tests --max-warnings 0",
+    "lint:fix": "eslint src scripts tests --fix",
+    "style:check": "stylelint \"src/renderer/**/*.{less,vue}\"",
+    "style:fix": "stylelint \"src/renderer/**/*.{less,vue}\" --fix",
+    "boundaries:check": "node scripts/check-boundaries.mjs",
+    "check": "npm run typecheck && npm run lint:check && npm run style:check && npm run boundaries:check && npm run format:check",
+    "test": "tsx --test tests/*.test.ts",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder --win portable"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2",
+    "lucide-vue-next": "^0.468.0",
+    "polygon-clipping": "^0.15.7",
+    "sharp": "^0.35.5",
+    "vue": "^3.5.44",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "electron": "^44.9.2",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^6.0.0",
+    "eslint": "^10.13.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.12.0",
+    "less": "^4.9.1",
+    "playwright-core": "^1.65.0",
+    "postcss-html": "^2.0.0",
+    "postcss-less": "^6.0.0",
+    "prettier": "^3.9.10",
+    "stylelint": "^17.16.0",
+    "stylelint-config-standard": "^40.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1",
+    "vite": "^8.3.4",
+    "vue-eslint-parser": "^10.4.1",
+    "vue-tsc": "^3.3.13"
+  },
+  "build": {
+    "appId": "com.chiyo.manga",
+    "productName": "Chiyo Manga",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "scripts/mcp-bridge.mjs",
+        "to": "mcp-bridge.mjs"
+      },
+      {
+        "from": "build/icon.ico",
+        "to": "icon.ico"
+      }
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ]
+    }
+  }
+}
